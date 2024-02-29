@@ -14,3 +14,12 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
+
+  # Spring Security / Queries for AuthenticationManagerBuilder
+  security:
+    user:
+      users-query: SELECT username, password, active FROM "user" WHERE username=?
+      roles-query: SELECT username, role FROM "user" WHERE username=?
+
+  # Initialize the database using data.sql script
+  initialization-mode: always
