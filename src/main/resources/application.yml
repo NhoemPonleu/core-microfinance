@@ -15,12 +15,11 @@ spring:
         format_sql: true
     show-sql: true
 
-# Spring Security / Queries for AuthenticationManagerBuilder
-spring:
-  queries:
-    users-query: SELECT username, password, active FROM "user" WHERE username=?
-    roles-query: SELECT username, role FROM "user" WHERE username=?
+  # Spring Security / Queries for AuthenticationManagerBuilder
+  security:
+    user:
+      users-query: SELECT username, password, active FROM "user" WHERE username=?
+      roles-query: SELECT username, role FROM "user" WHERE username=?
 
-# Initialize the database using data.sql script
-  datasource:
-    initialization-mode: always
+  # Initialize the database using data.sql script
+  initialization-mode: always
